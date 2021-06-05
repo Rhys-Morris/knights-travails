@@ -1,6 +1,4 @@
 class Gameboard
-    attr_reader :gameboard
-
     def initialize
         @gameboard = []
         populate_gameboard
@@ -19,7 +17,7 @@ class Gameboard
     def random_position
         row = rand(0..7)
         cell = rand(0..7)
-        gameboard[row][cell]
+        @gameboard[row][cell]
     end
 
     def legal_moves(position)
@@ -67,14 +65,3 @@ class Gameboard
         puts "\n"
     end 
 end
-
-# Testing from random positions
-
-new_game = Gameboard.new()
-10.times do
-    start = new_game.random_position
-    finish = new_game.random_position
-    new_game.knight_moves(start, finish)
-end
-# Test from same start/finish
-new_game.knight_moves([0, 0], [0, 0])
